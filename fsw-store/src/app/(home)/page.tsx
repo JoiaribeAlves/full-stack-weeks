@@ -1,7 +1,8 @@
-import Categories from "./components/Categories";
 import Banner from "./components/Banner";
+import Categories from "./components/Categories";
+import Deals from "./components/Deals";
 
-const Home = () => {
+const Home = async () => {
   return (
     <div className="flex flex-col gap-4 p-4 lg:gap-7 lg:p-7">
       <Banner
@@ -10,6 +11,8 @@ const Home = () => {
       />
 
       <Categories />
+
+      <Deals />
     </div>
   );
 };
