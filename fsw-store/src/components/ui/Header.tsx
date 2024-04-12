@@ -64,13 +64,15 @@ const Header = () => {
           <Separator />
 
           <div className="flex flex-col gap-2 pt-3">
-            <Button
-              variant={"outline"}
-              className="flex items-center justify-start gap-1"
-            >
-              <HomeIcon size={16} />
-              Início
-            </Button>
+            <Link href={"/"}>
+              <Button
+                variant={"outline"}
+                className="flex w-full items-center justify-start gap-1"
+              >
+                <HomeIcon size={16} />
+                Início
+              </Button>
+            </Link>
 
             {status === "unauthenticated" && (
               <Button
@@ -94,21 +96,25 @@ const Header = () => {
               </Button>
             )}
 
-            <Button
-              variant={"outline"}
-              className="flex items-center justify-start gap-1"
-            >
-              <PercentIcon size={16} />
-              Ofertas
-            </Button>
+            <Link href={"/ofertas"}>
+              <Button
+                variant={"outline"}
+                className="flex w-full items-center justify-start gap-1"
+              >
+                <PercentIcon size={16} />
+                Ofertas
+              </Button>
+            </Link>
 
-            <Button
-              variant={"outline"}
-              className="flex items-center justify-start gap-1"
-            >
-              <ListOrderedIcon size={16} />
-              Catálogo
-            </Button>
+            <Link href={"/catalogo"}>
+              <Button
+                variant={"outline"}
+                className="flex w-full items-center justify-start gap-1"
+              >
+                <ListOrderedIcon size={16} />
+                Catálogo
+              </Button>
+            </Link>
           </div>
         </SheetContent>
       </Sheet>
