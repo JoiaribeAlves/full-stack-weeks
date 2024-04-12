@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import "./globals.css";
-import Header from "@/components/ui/Header";
 import { AuthProvider } from "@/providers/auth";
+import Header from "@/components/ui/Header";
+import Footer from "@/components/ui/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ const RootLayout = ({ children }: IRootLayout) => {
           <>
             <Header />
             {children}
+            <Footer />
           </>
         </AuthProvider>
       </body>
