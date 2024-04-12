@@ -28,7 +28,7 @@ const Header = () => {
   };
 
   return (
-    <Card className="flex items-center justify-between p-4 lg:p-[1.875rem]">
+    <Card className="flex items-center justify-between p-4 lg:p-7">
       <Sheet>
         <SheetTrigger asChild>
           <Button size={"icon"} variant={"outline"}>
