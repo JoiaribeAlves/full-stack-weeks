@@ -22,11 +22,11 @@ const RootLayout = ({ children }: IRootLayout) => {
     <html lang="pt-br">
       <body className={inter.className}>
         <AuthProvider>
-          <>
+          <div className="flex min-h-screen flex-col">
             <Header />
-            {children}
+            <main className="flex-1">{children}</main>
             <Footer />
-          </>
+          </div>
         </AuthProvider>
       </body>
     </html>
