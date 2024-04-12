@@ -1,6 +1,8 @@
 import { prismaClient } from "@/lib/prisma";
 
 import ProductList from "../components/ProductList";
+import Section from "@/components/ui/Section";
+import SectionTitle from "@/components/ui/SectionTitle";
 
 const Deals = async () => {
   const deals = await prismaClient.product.findMany({
@@ -12,11 +14,13 @@ const Deals = async () => {
   });
 
   return (
-    <div className="flex flex-col gap-2">
-      <h2 className="text-2xl font-bold">Ofertas</h2>
+    <Section>
+      <>
+        <SectionTitle label={"Ofertas"} />
 
-      <ProductList products={deals} />
-    </div>
+        <ProductList products={deals} />
+      </>
+    </Section>
   );
 };
 
