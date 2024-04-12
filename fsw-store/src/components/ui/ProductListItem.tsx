@@ -10,8 +10,8 @@ interface IProductListItem {
 
 const ProductListItem = ({ product }: IProductListItem) => {
   return (
-    <div className="flex max-w-[156px] flex-col gap-4">
-      <div className="relative flex h-[170px] w-[156px] items-center justify-center rounded-lg bg-accent">
+    <li className="flex max-w-[170px] flex-col gap-4">
+      <div className="relative flex h-[180px] w-[170px] items-center justify-center rounded-lg bg-accent">
         <Image
           src={product.imgUrls[0]}
           alt={product.name}
@@ -55,7 +55,7 @@ const ProductListItem = ({ product }: IProductListItem) => {
           )}
         </div>
       </div>
-    </div>
+    </li>
   );
 };
 
