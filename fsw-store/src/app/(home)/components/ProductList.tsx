@@ -9,14 +9,14 @@ interface IProductList {
 
 const ProductList = ({ products }: IProductList) => {
   return (
-    <div className="flex w-full gap-4 overflow-x-auto [&::-webkit-scrollbar]:hidden">
+    <ul className="flex w-full gap-4 overflow-x-auto [&::-webkit-scrollbar]:hidden">
       {products.map((product) => (
         <ProductListItem
           key={product.id}
           product={computeProductTotalPrice(product)}
         />
       ))}
-    </div>
+    </ul>
   );
 };
 
