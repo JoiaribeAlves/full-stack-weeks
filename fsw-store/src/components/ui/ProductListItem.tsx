@@ -44,7 +44,7 @@ const ProductListItem = ({ product }: IProductListItem) => {
                 R$ {String(product.totalPrice.toFixed(2)).replace(".", ",")}
               </span>
 
-              <span className="text-xs line-through opacity-75">
+              <span className="overflow-hidden text-ellipsis whitespace-nowrap text-xs line-through opacity-75">
                 R$ {String(product.basePrice.toFixed(2)).replace(".", ",")}
               </span>
             </>
