@@ -14,7 +14,7 @@ const ProductImages = ({ imgUrls, productName }: IProductImages) => {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="h-[400px] rounded-lg bg-accent">
+      <div className="h-[300px] rounded-lg bg-accent lg:h-[400px]">
         <Image
           src={currentImg}
           alt={productName}
