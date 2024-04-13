@@ -1,9 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowDownIcon } from "lucide-react";
 
 import { IComputeProductTotalPrice } from "@/helpers/product";
-import { Badge } from "./shadcn/badge";
+import DiscountBadge from "./DiscountBadge";
 
 interface IProductListItem {
   product: IComputeProductTotalPrice;
@@ -30,10 +29,9 @@ const ProductListItem = ({ product, imageSize }: IProductListItem) => {
           />
 
           {product.discountPercent > 0 && (
-            <Badge className="absolute left-3 top-3 px-2 py-[2px]">
-              <ArrowDownIcon size={14} />
-              {product.discountPercent}%
-            </Badge>
+            <DiscountBadge className="absolute left-3 top-3">
+              {product.discountPercent}
+            </DiscountBadge>
           )}
         </div>
 

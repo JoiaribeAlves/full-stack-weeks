@@ -1,11 +1,11 @@
 "use client";
 
-import { ArrowDownIcon, MinusIcon, PlusIcon } from "lucide-react";
+import { useState } from "react";
+import { MinusIcon, PlusIcon } from "lucide-react";
 
 import { IComputeProductTotalPrice } from "@/helpers/product";
-import { Badge } from "@/components/ui/shadcn/badge";
-import { useState } from "react";
 import { Button } from "@/components/ui/shadcn/button";
+import DiscountBadge from "@/components/ui/DiscountBadge";
 
 interface IProductInfo {
   product: Pick<
@@ -40,10 +40,7 @@ const ProductInfo = ({ product }: IProductInfo) => {
           </strong>
 
           {product.discountPercent > 0 && (
-            <Badge className="px-2 py-[2px]">
-              <ArrowDownIcon size={14} />
-              {product.discountPercent}%
-            </Badge>
+            <DiscountBadge>{product.discountPercent}</DiscountBadge>
           )}
         </div>
 
