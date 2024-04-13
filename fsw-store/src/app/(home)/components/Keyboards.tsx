@@ -1,6 +1,6 @@
 import { prismaClient } from "@/lib/prisma";
 
-import ProductList from "../components/ProductList";
+import ProductList from "../../../components/ui/ProductList";
 import Section from "@/components/ui/Section";
 import SectionTitle from "@/components/ui/SectionTitle";
 

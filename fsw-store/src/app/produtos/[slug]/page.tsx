@@ -4,6 +4,10 @@ import ProductImages from "./components/ProductImages";
 import ProductInfo from "./components/ProductInfo";
 import AddToCard from "./components/AddToCard";
 import FullDescription from "./components/FullDescription";
+import ProductList from "@/components/ui/ProductList";
+import Section from "@/components/ui/Section";
+import SectionTitle from "@/components/ui/SectionTitle";
+import { Separator } from "@/components/ui/shadcn/separator";
 
 interface IProductsSlug {
   params: {
@@ -15,6 +19,19 @@ const Page = async ({ params }: IProductsSlug) => {
   const product = await prismaClient.product.findFirst({
     where: {
       slug: params.slug,
+    },
+    include: {
+      category: {
+        include: {
+          Products: {
+            where: {
+              NOT: {
+                slug: params.slug,
+              },
+            },
+          },
+        },
+      },
     },
   });
 
@@ -33,6 +50,14 @@ const Page = async ({ params }: IProductsSlug) => {
       </div>
 
       <FullDescription description={product.description} />
+
+      <Separator />
+
+      <Section>
+        <SectionTitle label={"Produtos relacionados"} />
+
+        <ProductList products={product.category.Products} />
+      </Section>
     </div>
   );
 };
