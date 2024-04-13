@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Category } from "@prisma/client";
 
 import { prismaClient } from "@/lib/prisma";
 import { computeProductTotalPrice } from "@/helpers/product";
@@ -11,11 +10,13 @@ export const metadata: Metadata = {
   title: "Categoria FSW Store",
 };
 
-interface ITeste {
-  params: Category;
+interface ICategoriesSlug {
+  params: {
+    slug: string;
+  }
 }
 
-const Page = async ({ params }: ITeste) => {
+const Page = async ({ params }: ICategoriesSlug) => {
   const category = await prismaClient.category.findFirst({
     where: {
       slug: params.slug,
