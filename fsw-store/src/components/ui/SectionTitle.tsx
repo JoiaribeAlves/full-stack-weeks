@@ -3,7 +3,7 @@ interface ISessionTitle {
 }
 
 const SectionTitle = ({ label }: ISessionTitle) => {
-  return <h2 className="text-2xl font-bold uppercase">{label}</h2>;
+  return <h2 className="text-xl font-bold uppercase lg:text-2xl">{label}</h2>;
 };
 
 export default SectionTitle;
