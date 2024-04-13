@@ -6,19 +6,22 @@ import { Badge } from "./shadcn/badge";
 
 interface IProductListItem {
   product: IComputeProductTotalPrice;
+  imageSize: string;
 }
 
-const ProductListItem = ({ product }: IProductListItem) => {
+const ProductListItem = ({ product, imageSize }: IProductListItem) => {
   return (
-    <li className="flex max-w-[170px] flex-col gap-4">
-      <div className="relative flex h-[180px] w-[170px] items-center justify-center rounded-lg bg-accent">
+    <li className={`flex flex-col gap-4`}>
+      <div
+        className={`relative flex h-[200px] w-[${imageSize}] items-center justify-center rounded-lg bg-accent`}
+      >
         <Image
           src={product.imgUrls[0]}
           alt={product.name}
           width={0}
           height={0}
           sizes="100vw"
-          className="h-auto max-h-[70%] w-auto max-w-[80%]"
+          className="h-auto max-h-[80%] w-auto max-w-[80%]"
           style={{
             objectFit: "contain",
           }}
