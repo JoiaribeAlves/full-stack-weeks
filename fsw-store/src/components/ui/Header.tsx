@@ -12,7 +12,13 @@ import {
 } from "lucide-react";
 import { Button } from "./shadcn/button";
 import { Card } from "./shadcn/card";
-import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "./shadcn/sheet";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetTrigger,
+} from "./shadcn/sheet";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "./shadcn/avatar";
 import { Separator } from "./shadcn/separator";
@@ -64,15 +70,17 @@ const Header = () => {
           <Separator />
 
           <div className="flex flex-col gap-2 pt-3">
-            <Link href={"/"}>
-              <Button
-                variant={"outline"}
-                className="flex w-full items-center justify-start gap-1"
-              >
-                <HomeIcon size={16} />
-                Início
-              </Button>
-            </Link>
+            <SheetClose asChild>
+              <Link href={"/"}>
+                <Button
+                  variant={"outline"}
+                  className="flex w-full items-center justify-start gap-1"
+                >
+                  <HomeIcon size={16} />
+                  Início
+                </Button>
+              </Link>
+            </SheetClose>
 
             {status === "unauthenticated" && (
               <Button
@@ -96,25 +104,29 @@ const Header = () => {
               </Button>
             )}
 
-            <Link href={"/ofertas"}>
-              <Button
-                variant={"outline"}
-                className="flex w-full items-center justify-start gap-1"
-              >
-                <PercentIcon size={16} />
-                Ofertas
-              </Button>
-            </Link>
+            <SheetClose asChild>
+              <Link href={"/ofertas"}>
+                <Button
+                  variant={"outline"}
+                  className="flex w-full items-center justify-start gap-1"
+                >
+                  <PercentIcon size={16} />
+                  Ofertas
+                </Button>
+              </Link>
+            </SheetClose>
 
-            <Link href={"/catalogo"}>
-              <Button
-                variant={"outline"}
-                className="flex w-full items-center justify-start gap-1"
-              >
-                <ListOrderedIcon size={16} />
-                Catálogo
-              </Button>
-            </Link>
+            <SheetClose asChild>
+              <Link href={"/catalogo"}>
+                <Button
+                  variant={"outline"}
+                  className="flex w-full items-center justify-start gap-1"
+                >
+                  <ListOrderedIcon size={16} />
+                  Catálogo
+                </Button>
+              </Link>
+            </SheetClose>
           </div>
         </SheetContent>
       </Sheet>
