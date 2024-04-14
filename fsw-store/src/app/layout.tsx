@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 
 import "./globals.css";
 import { AuthProvider } from "@/providers/auth";
+import CartProvider from "@/providers/cart";
 import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 
@@ -22,13 +23,15 @@ const RootLayout = ({ children }: IRootLayout) => {
     <html lang="pt-br">
       <body className={inter.className}>
         <AuthProvider>
-          <div className="flex min-h-screen flex-col">
-            <Header />
-            <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-8 lg:p-8">
-              {children}
-            </main>
-            <Footer />
-          </div>
+          <CartProvider>
+            <div className="flex min-h-screen flex-col">
+              <Header />
+              <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-8 lg:p-8">
+                {children}
+              </main>
+              <Footer />
+            </div>
+          </CartProvider>
         </AuthProvider>
       </body>
     </html>
