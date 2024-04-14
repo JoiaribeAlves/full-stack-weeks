@@ -43,7 +43,7 @@ const ProductListItem = ({ product, imageSize }: IProductListItem) => {
           <div className="flex items-center justify-between">
             {product.discountPercent > 0 ? (
               <>
-                <span className="font-semibold">
+                <span className="text-sm font-semibold">
                   R$ {String(product.totalPrice.toFixed(2)).replace(".", ",")}
                 </span>
 
