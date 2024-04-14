@@ -48,12 +48,17 @@ const ProductListItem = ({ product, imageSize }: IProductListItem) => {
                 </span>
 
                 <span className="overflow-hidden text-ellipsis whitespace-nowrap text-xs line-through opacity-75">
-                  R$ {String(product.basePrice.toFixed(2)).replace(".", ",")}
+                  R${" "}
+                  {String(Number(product.basePrice).toFixed(2)).replace(
+                    ".",
+                    ",",
+                  )}
                 </span>
               </>
             ) : (
               <span className="text-sm font-semibold">
-                R$ {String(product.basePrice.toFixed(2)).replace(".", ",")}
+                R${" "}
+                {String(Number(product.basePrice).toFixed(2)).replace(".", ",")}
               </span>
             )}
           </div>
