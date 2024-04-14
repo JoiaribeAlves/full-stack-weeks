@@ -1,13 +1,13 @@
 import { prismaClient } from "@/lib/prisma";
 import { computeProductTotalPrice } from "@/helpers/product";
-import ProductImages from "./components/ProductImages";
-import ProductInfo from "./components/ProductInfo";
-import AddToCard from "./components/AddToCard";
-import FullDescription from "./components/FullDescription";
-import ProductList from "@/components/ui/ProductList";
 import Section from "@/components/ui/Section";
 import SectionTitle from "@/components/ui/SectionTitle";
+import ProductList from "@/components/ui/ProductList";
 import { Separator } from "@/components/ui/shadcn/separator";
+import ProductImages from "./components/ProductImages";
+import ProductInfo from "./components/ProductInfo";
+import PaymentAndShipping from "./components/PaymentAndShipping";
+import FullDescription from "./components/FullDescription";
 
 interface IProductsSlug {
   params: {
@@ -41,12 +41,14 @@ const Page = async ({ params }: IProductsSlug) => {
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-[2fr_1fr_1fr]">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
         <ProductImages imgUrls={product.imgUrls} productName={product.name} />
 
-        <ProductInfo product={computeProductTotalPrice(product)} />
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+          <ProductInfo product={computeProductTotalPrice(product)} />
 
-        <AddToCard />
+          <PaymentAndShipping />
+        </div>
       </div>
 
       <FullDescription description={product.description} />

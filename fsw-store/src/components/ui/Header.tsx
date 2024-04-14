@@ -22,6 +22,7 @@ import {
 import { signIn, signOut, useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "./shadcn/avatar";
 import { Separator } from "./shadcn/separator";
+import Cart from "./Cart";
 
 const Header = () => {
   const { data, status } = useSession();
@@ -137,9 +138,17 @@ const Header = () => {
         </h1>
       </Link>
 
-      <Button size={"icon"} variant={"outline"}>
-        <ShoppingCartIcon size={16} />
-      </Button>
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button size={"icon"} variant={"outline"}>
+            <ShoppingCartIcon size={16} />
+          </Button>
+        </SheetTrigger>
+
+        <SheetContent>
+          <Cart />
+        </SheetContent>
+      </Sheet>
     </Card>
   );
 };
