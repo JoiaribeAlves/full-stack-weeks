@@ -52,7 +52,9 @@ const CartProvider = ({ children }: ICartProvider) => {
   );
 
   useEffect(() => {
-    localStorage.setItem("@fsw-store/cart", JSON.stringify(products));
+    if (typeof window !== "undefined") {
+      localStorage.setItem("@fsw-store/cart", JSON.stringify(products));
+    }
   }, [products]);
 
   const subtotal = useMemo(() => {
