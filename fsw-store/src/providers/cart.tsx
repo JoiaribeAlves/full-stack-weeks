@@ -54,6 +54,8 @@ const CartProvider = ({ children }: ICartProvider) => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       localStorage.setItem("@fsw-store/cart", JSON.stringify(products));
+    } else {
+      return;
     }
   }, [products]);
 
