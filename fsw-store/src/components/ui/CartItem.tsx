@@ -12,10 +12,15 @@ interface ICartItem {
 }
 
 const CartItem = ({ product }: ICartItem) => {
-  const { decreaseProductQuantityOnCart } = useContext(CartContext);
+  const { decreaseProductQuantityOnCart, increaseProductQuantityOnCart } =
+    useContext(CartContext);
 
   const handleDecreaseProductQuantityOnCart = () => {
     decreaseProductQuantityOnCart(product.id);
+  };
+
+  const handleIncreaseProductQuantityOnCart = () => {
+    increaseProductQuantityOnCart(product.id);
   };
 
   return (
@@ -64,7 +69,7 @@ const CartItem = ({ product }: ICartItem) => {
             size={"icon"}
             variant={"outline"}
             className="h-8 w-8"
-            onClick={() => {}}
+            onClick={handleIncreaseProductQuantityOnCart}
           >
             <PlusIcon size={14} />
           </Button>
