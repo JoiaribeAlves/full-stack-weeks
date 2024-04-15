@@ -1,15 +1,27 @@
 import { useContext } from "react";
 import { ShoppingCartIcon } from "lucide-react";
+import { loadStripe } from "@stripe/stripe-js";
 
 import { CartContext } from "@/providers/cart";
 import { computeProductTotalPrice } from "@/helpers/product";
+import { createCheckout } from "@/actions/checkout";
 import { Badge } from "./shadcn/badge";
-import CartItem from "./CartItem";
 import { Separator } from "./shadcn/separator";
 import { Button } from "./shadcn/button";
+import CartItem from "./CartItem";
 
 const Cart = () => {
   const { products, subtotal, totalDiscount, total } = useContext(CartContext);
+
+  const handleFinishPurchase = async () => {
+    const checkout = await createCheckout(products);
+
+    const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
+
+    stripe?.redirectToCheckout({
+      sessionId: checkout.id,
+    });
+  };
 
   return (
     <div className="flex h-full flex-col gap-4">
@@ -46,9 +58,7 @@ const Cart = () => {
 
           <div className="flex items-center justify-between text-sm">
             <span>Subtotal:</span>
-            <span>
-              R$ {String(subtotal.toFixed(2)).replace(".", ",")}
-            </span>
+            <span>R$ {String(subtotal.toFixed(2)).replace(".", ",")}</span>
           </div>
 
           <Separator />
@@ -72,7 +82,9 @@ const Cart = () => {
           <Separator />
 
           <div>
-            <Button className="w-full uppercase">Finalizar compra</Button>
+            <Button className="w-full uppercase" onClick={handleFinishPurchase}>
+              Finalizar compra
+            </Button>
           </div>
         </div>
       )}
