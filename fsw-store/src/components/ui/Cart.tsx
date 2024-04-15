@@ -21,12 +21,20 @@ const Cart = () => {
         </Badge>
       </div>
 
-      {products.map((product) => (
-        <CartItem
-          key={product.id}
-          product={computeProductTotalPrice(product) as any}
-        />
-      ))}
+      {products.length > 0 ? (
+        <>
+          {products.map((product) => (
+            <CartItem
+              key={product.id}
+              product={computeProductTotalPrice(product) as any}
+            />
+          ))}
+        </>
+      ) : (
+        <div className="text-center font-semibold">
+          Seu carrinho está vazio!
+        </div>
+      )}
     </div>
   );
 };
