@@ -6,6 +6,7 @@ import { AuthProvider } from "@/providers/auth";
 import CartProvider from "@/providers/cart";
 import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
+import { Toaster } from "@/components/ui/shadcn/sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ const RootLayout = ({ children }: IRootLayout) => {
         <AuthProvider>
           <CartProvider>
             <div className="flex min-h-screen flex-col">
+              <Toaster />
               <Header />
               <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-8 lg:p-8">
                 {children}
