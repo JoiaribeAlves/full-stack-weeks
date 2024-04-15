@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 
 import "./globals.css";
 import { AuthProvider } from "@/providers/auth";
@@ -8,7 +8,10 @@ import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 import { Toaster } from "@/components/ui/shadcn/sonner";
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({
+  weight: ["300", "400", "500", "700"],
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "FSW Store - Full Stack Week",
@@ -22,7 +25,7 @@ interface IRootLayout {
 const RootLayout = ({ children }: IRootLayout) => {
   return (
     <html lang="pt-br">
-      <body className={inter.className}>
+      <body className={roboto.className}>
         <AuthProvider>
           <CartProvider>
             <div className="flex min-h-screen flex-col">
