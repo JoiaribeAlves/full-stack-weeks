@@ -47,15 +47,19 @@ const CartContext = createContext<ICartContext>({
 });
 
 const CartProvider = ({ children }: ICartProvider) => {
+  let storageCart: string | null = "";
+  if (typeof window !== "undefined") {
+    storageCart = localStorage.getItem("@fsw-store/cart");
+  }
+
   const [products, setProducts] = useState<ICartProduct[]>(
-    localStorage
-      ? JSON.parse(localStorage.getItem("@fsw-store/cart") || "[]")
-      : "[]",
+    JSON.parse(storageCart || "[]"),
   );
 
   useEffect(() => {
-    localStorage.setItem("@fsw-store/cart", JSON.stringify(products));
-    // if (typeof window !== "undefined") {}
+    if (typeof window !== "undefined") {
+      localStorage.setItem("@fsw-store/cart", JSON.stringify(products));
+    }
   }, [products]);
 
   const subtotal = useMemo(() => {
