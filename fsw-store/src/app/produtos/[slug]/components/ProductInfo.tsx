@@ -1,7 +1,8 @@
 "use client";
 
 import { useContext, useState } from "react";
-import { MinusIcon, PlusIcon } from "lucide-react";
+import { CheckIcon, MinusIcon, PlusIcon } from "lucide-react";
+import { toast } from "sonner";
 
 import { IComputeProductTotalPrice } from "@/helpers/product";
 import { CartContext } from "@/providers/cart";
@@ -30,6 +31,12 @@ const ProductInfo = ({ product }: IProductInfo) => {
 
   const handleAddProductToCart = () => {
     addProductToCart({ ...product, productQuantity });
+
+    toast(`${product.name} foi adicionado ao seu carrinho`, {
+      duration: 3500,
+      position: "top-right",
+      icon: <CheckIcon size={14} />,
+    });
   };
 
   return (
