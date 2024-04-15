@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import { prismaClient } from "@/lib/prisma";
 import { computeProductTotalPrice } from "@/helpers/product";
 import Section from "@/components/ui/Section";
@@ -8,6 +10,11 @@ import ProductImages from "./components/ProductImages";
 import ProductInfo from "./components/ProductInfo";
 import PaymentAndShipping from "./components/PaymentAndShipping";
 import FullDescription from "./components/FullDescription";
+
+export const metadata: Metadata = {
+  title: "Produto FSW Store",
+  description: "Confira os detalhes do produto",
+};
 
 interface IProductsSlug {
   params: {
