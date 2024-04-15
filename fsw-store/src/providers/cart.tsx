@@ -47,9 +47,7 @@ const CartContext = createContext<ICartContext>({
 });
 
 const CartProvider = ({ children }: ICartProvider) => {
-  const [products, setProducts] = useState<ICartProduct[]>(
-    JSON.parse(localStorage.getItem("@fsw-store/cart") || "[]"),
-  );
+  const [products, setProducts] = useState<ICartProduct[]>([]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
