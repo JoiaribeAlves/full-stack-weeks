@@ -118,13 +118,13 @@ const Header = () => {
             </SheetClose>
 
             <SheetClose asChild>
-              <Link href={"/catalogo"}>
+              <Link href={"/categorias"}>
                 <Button
                   variant={"outline"}
                   className="flex w-full items-center justify-start gap-1"
                 >
                   <ListOrderedIcon size={16} />
-                  Catálogo
+                  Categorias
                 </Button>
               </Link>
             </SheetClose>
@@ -133,7 +133,7 @@ const Header = () => {
       </Sheet>
 
       <Link href={"/"}>
-        <h1 className="text-lg font-semibold lg:text-xl">
+        <h1 className="text-lg font-bold lg:text-xl">
           <span className="text-primary">FSW</span> Store
         </h1>
       </Link>
