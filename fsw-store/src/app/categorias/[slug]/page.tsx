@@ -7,16 +7,20 @@ import { Badge } from "@/components/ui/shadcn/badge";
 import ProductListItem from "@/components/ui/ProductListItem";
 
 export const metadata: Metadata = {
-  title: "Categoria FSW Store",
+  title: "",
 };
 
 interface ICategoriesSlug {
   params: {
     slug: string;
-  }
+  };
 }
 
 const Page = async ({ params }: ICategoriesSlug) => {
+  metadata.title =
+    params.slug.charAt(0).toUpperCase() +
+    params.slug.slice(1).concat(" FSW Store");
+
   const category = await prismaClient.category.findFirst({
     where: {
       slug: params.slug,
