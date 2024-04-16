@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { prismaClient } from "@/lib/prisma";
 import { computeProductTotalPrice } from "@/helpers/product";
 import Section from "@/components/ui/Section";
-import SectionTitle from "@/components/ui/SectionTitle";
 import ProductList from "@/components/ui/ProductList";
 import { Separator } from "@/components/ui/shadcn/separator";
 import ProductImages from "./components/ProductImages";
@@ -62,8 +61,8 @@ const Page = async ({ params }: IProductsSlug) => {
 
       <Separator />
 
-      <Section>
-        <SectionTitle label={"Produtos relacionados"} />
+      <Section label="Produtos relacionados">
+
 
         <ProductList products={product.category.Products} />
       </Section>
