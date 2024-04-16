@@ -1,4 +1,5 @@
 import { prismaClient } from "@/lib/prisma";
+import { PercentIcon } from "lucide-react";
 
 import ProductList from "@/components/ui/ProductList";
 import Section from "@/components/ui/Section";
@@ -13,8 +14,8 @@ const Deals = async () => {
   });
 
   return (
-    <Section label="Ofertas">
-      <ProductList products={deals} />
+    <Section icon={<PercentIcon size={16} />} label="Ofertas">
+      <ProductList products={deals} height="h-[200px]" width="w-[200px]" />
     </Section>
   );
 };

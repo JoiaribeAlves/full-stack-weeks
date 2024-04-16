@@ -1,14 +1,15 @@
+import TitleBadge from "./TitleBadge";
+
 interface ISection {
   children: React.ReactNode;
+  icon?: React.ReactNode;
   label?: string;
 }
 
-const Section = ({ children, label }: ISection) => {
+const Section = ({ children, icon, label }: ISection) => {
   return (
-    <section className="flex flex-col gap-3">
-      {label && (
-        <h2 className="text-xl font-medium lg:text-2xl">{label}</h2>
-      )}
+    <section className="flex flex-col gap-2 lg:gap-3">
+      <TitleBadge icon={icon} label={label} />
 
       {children}
     </section>
