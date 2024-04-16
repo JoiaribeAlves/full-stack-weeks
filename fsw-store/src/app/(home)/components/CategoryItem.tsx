@@ -10,15 +10,17 @@ interface ICategoryItem {
 
 const CategoryItem = ({ category }: ICategoryItem) => {
   return (
-    <Link href={`/categorias/${category.slug}`} className="block w-full">
-      <Badge
-        variant={"outline"}
-        className="flex items-center justify-center gap-2 rounded-lg px-4 py-3 transition-colors hover:bg-accent hover:text-accent-foreground"
-      >
-        {GET_CATEGORY_ICON[category.slug as keyof typeof GET_CATEGORY_ICON]}
-        <span className="text-xs font-bold">{category.name}</span>
-      </Badge>
-    </Link>
+    <li>
+      <Link href={`/categorias/${category.slug}`} className="w-full">
+        <Badge
+          variant={"outline"}
+          className="flex items-center justify-center gap-2 rounded-lg p-3 transition-colors hover:bg-accent"
+        >
+          {GET_CATEGORY_ICON[category.slug as keyof typeof GET_CATEGORY_ICON]}
+          <span className="text-xs font-bold">{category.name}</span>
+        </Badge>
+      </Link>
+    </li>
   );
 };
 
