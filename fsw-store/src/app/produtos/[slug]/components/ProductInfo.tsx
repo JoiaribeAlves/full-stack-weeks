@@ -8,6 +8,7 @@ import { IComputeProductTotalPrice } from "@/helpers/product";
 import { CartContext } from "@/providers/cart";
 import { Button } from "@/components/ui/shadcn/button";
 import DiscountBadge from "@/components/ui/DiscountBadge";
+import { formatter } from "@/helpers/formatCurrency";
 
 interface IProductInfo {
   product: IComputeProductTotalPrice;
@@ -41,13 +42,16 @@ const ProductInfo = ({ product }: IProductInfo) => {
 
   return (
     <div className="flex flex-col gap-4">
-      <h1 className="text-2xl font-medium lg:text-4xl">{product.name}</h1>
+      <h1 className="text-2xl">{product.name}</h1>
 
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-3">
         <div className="flex items-center gap-2">
-          <strong className="text-lg font-bold lg:text-2xl">
-            R$ {String(product.totalPrice.toFixed(2)).replace(".", ",")}
-          </strong>
+          <div className="flex items-end gap-1">
+            <span className="text-xs lg:text-sm">R$</span>
+            <strong className="text-4xl font-medium text-primary">
+              {formatter.format(product.totalPrice).slice(3)}
+            </strong>
+          </div>
 
           {product.discountPercent > 0 && (
             <DiscountBadge>{product.discountPercent}</DiscountBadge>
@@ -56,15 +60,16 @@ const ProductInfo = ({ product }: IProductInfo) => {
 
         {product.discountPercent > 0 && (
           <span className="text-xs line-through opacity-75 lg:text-sm">
-            R$ {String(Number(product.basePrice).toFixed(2)).replace(".", ",")}
+            {formatter.format(Number(product.basePrice))}
           </span>
         )}
       </div>
 
-      <div className="flex w-[105px] items-center justify-between">
+      <div className="flex w-24 items-center justify-between">
         <Button
           size={"icon"}
           variant={"outline"}
+          className="h-8 w-8"
           onClick={handleDecreaseProductQuantity}
         >
           <MinusIcon size={14} />
@@ -75,6 +80,7 @@ const ProductInfo = ({ product }: IProductInfo) => {
         <Button
           size={"icon"}
           variant={"outline"}
+          className="h-8 w-8"
           onClick={handleIncreaseProductQuantity}
         >
           <PlusIcon size={14} />
