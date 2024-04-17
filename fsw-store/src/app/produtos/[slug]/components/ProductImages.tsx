@@ -1,8 +1,9 @@
 "use client";
 
-import { Button } from "@/components/ui/shadcn/button";
 import Image from "next/image";
 import { useState } from "react";
+
+import { Button } from "@/components/ui/shadcn/button";
 
 interface IProductImages {
   imgUrls: string[];
@@ -14,14 +15,14 @@ const ProductImages = ({ imgUrls, productName }: IProductImages) => {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="h-[300px] rounded-lg bg-accent lg:h-[400px]">
+      <div className="flex h-[300px] items-center justify-center rounded-lg bg-accent lg:h-[400px]">
         <Image
           src={currentImg}
           alt={productName}
           width={0}
           height={0}
           sizes="100vw"
-          className="h-auto max-h-[80%] w-auto max-w-[80%]"
+          className="h-auto max-h-[90%] w-auto max-w-[90%]"
           style={{ objectFit: "contain" }}
         />
       </div>
@@ -40,7 +41,7 @@ const ProductImages = ({ imgUrls, productName }: IProductImages) => {
               width={0}
               height={0}
               sizes="100vw"
-              className="h-auto max-h-[80%] w-auto max-w-[80%]"
+              className="h-auto max-h-[90%] w-auto max-w-[90%]"
               style={{ objectFit: "contain" }}
             />
           </Button>
