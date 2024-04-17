@@ -134,7 +134,10 @@ const Header = () => {
 
       <Link href={"/"}>
         <h1 className="text-lg font-bold lg:text-xl">
-          <span className="text-primary">FSW</span> Store
+          <span className="bg-catalog-item-gradient bg-clip-text text-transparent">
+            FSW
+          </span>{" "}
+          Store
         </h1>
       </Link>
 
