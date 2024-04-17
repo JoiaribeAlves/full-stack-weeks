@@ -62,9 +62,11 @@ const Page = async ({ params }: IProductsSlug) => {
       <Separator />
 
       <Section label="Produtos relacionados">
-
-
-        <ProductList products={product.category.Products} />
+        <ProductList
+          products={product.category.Products}
+          height="h-[200px]"
+          width="w-[200px]"
+        />
       </Section>
     </div>
   );
