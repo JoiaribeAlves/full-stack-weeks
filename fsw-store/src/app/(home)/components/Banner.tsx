@@ -22,7 +22,6 @@ const Banner = ({ src }: IBanner) => {
           delay: fiveSeconds,
         }),
       ]}
-      className="overflow-hidden rounded-lg"
     >
       <CarouselContent>
         {src.map((item, index) => (
@@ -36,7 +35,7 @@ const Banner = ({ src }: IBanner) => {
               width={0}
               height={0}
               sizes="100vw"
-              className="h-full w-full rounded-lg"
+              className="h-full w-full"
               style={{ objectFit: "cover" }}
             />
           </CarouselItem>
