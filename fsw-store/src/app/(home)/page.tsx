@@ -4,7 +4,7 @@ import Deals from "./components/Deals";
 import Mouses from "./components/Mouses";
 import Keyboards from "./components/Keyboards";
 
-const Home = async () => {
+const Home = () => {
   return (
     <>
       <Banner
