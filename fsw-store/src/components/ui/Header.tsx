@@ -3,6 +3,7 @@ import { MenuIcon, ShoppingCartIcon } from "lucide-react";
 
 import Cart from "./Cart";
 import Menu from "./Menu";
+import ToggleTheme from "./ToggleTheme";
 import { Button } from "./shadcn/button";
 import { Card } from "./shadcn/card";
 import { Sheet, SheetContent, SheetTrigger } from "./shadcn/sheet";
@@ -31,17 +32,21 @@ const Header = () => {
         </h1>
       </Link>
 
-      <Sheet>
-        <SheetTrigger asChild>
-          <Button size={"icon"} variant={"outline"}>
-            <ShoppingCartIcon size={16} />
-          </Button>
-        </SheetTrigger>
+      <div className="flex gap-2">
+        <ToggleTheme />
 
-        <SheetContent side="right">
-          <Cart />
-        </SheetContent>
-      </Sheet>
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button size={"icon"} variant={"outline"}>
+              <ShoppingCartIcon size={16} />
+            </Button>
+          </SheetTrigger>
+
+          <SheetContent side="right">
+            <Cart />
+          </SheetContent>
+        </Sheet>
+      </div>
     </Card>
   );
 };
