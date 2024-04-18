@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { ReactNode } from "react";
 import { Roboto } from "next/font/google";
 
 import "./globals.css";
@@ -13,13 +13,8 @@ const roboto = Roboto({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "FSW Store - Full Stack Week",
-  description: "Full stack week store",
-};
-
 interface IRootLayout {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 const RootLayout = ({ children }: IRootLayout) => {
@@ -31,7 +26,7 @@ const RootLayout = ({ children }: IRootLayout) => {
             <div className="flex min-h-screen flex-col">
               <Toaster />
               <Header />
-              <main className="flex flex-1 flex-col gap-8 p-4 lg:p-8">
+              <main className="flex flex-1 flex-col gap-8 py-4 lg:py-8">
                 {children}
               </main>
               <Footer />
