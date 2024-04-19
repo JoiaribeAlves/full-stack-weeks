@@ -13,6 +13,9 @@ const Keyboards = async () => {
         slug: "keyboards",
       },
     },
+    orderBy: {
+      discountPercent: "desc",
+    },
   });
 
   return (

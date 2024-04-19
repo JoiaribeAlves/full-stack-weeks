@@ -13,6 +13,9 @@ const Mouses = async () => {
         slug: "mouses",
       },
     },
+    orderBy: {
+      discountPercent: "desc",
+    },
   });
 
   return (
