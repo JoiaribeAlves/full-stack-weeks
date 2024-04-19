@@ -77,7 +77,8 @@ const Menu = () => {
             <div>
               <Button
                 variant="default"
-                className="flex items-center gap-1 p-2"
+                size="sm"
+                className="flex items-center gap-1 bg-secondary px-2 text-secondary-foreground hover:bg-primary hover:text-primary-foreground"
                 onClick={handleLoginClick}
               >
                 <LogInIcon size={16} />
