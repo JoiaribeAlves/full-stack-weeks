@@ -53,10 +53,7 @@
   * {
     @apply border-border;
   }
-  html {
-    @apply h-full;
-  }
   body {
-    @apply h-full bg-background text-foreground;
+    @apply flex min-h-screen flex-col bg-background text-foreground;
   }
 }
