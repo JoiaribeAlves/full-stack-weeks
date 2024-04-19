@@ -1,7 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
+import { twMerge } from "tailwind-merge";
 
 import { IComputeProductTotalPrice } from "@/helpers/product";
+import { formatter } from "@/helpers/formatCurrency";
 import DiscountBadge from "./DiscountBadge";
 
 interface IProductListItem {
@@ -11,21 +13,23 @@ interface IProductListItem {
 
 const ProductListItem = ({ product, imageSize }: IProductListItem) => {
   return (
-    <li className={`flex flex-col gap-4`}>
-      <Link href={`/produtos/${product.slug}`}>
+    <div className="flex w-full">
+      <Link
+        href={`/produtos/${product.slug}`}
+        className="flex w-full flex-col gap-3 rounded-lg border border-accent p-2"
+      >
         <div
-          className={`relative flex h-[200px] w-[${imageSize}] items-center justify-center rounded-lg bg-accent`}
+          className={twMerge(
+            "relative flex items-center justify-center overflow-hidden rounded-lg bg-accent",
+            imageSize,
+          )}
         >
           <Image
             src={product.imgUrls[0]}
             alt={product.name}
-            width={0}
             height={0}
-            sizes="100vw"
-            className="h-auto max-h-[80%] w-auto max-w-[80%]"
-            style={{
-              objectFit: "contain",
-            }}
+            width={0}
+            className="h-[90%] w-[90%]"
           />
 
           {product.discountPercent > 0 && (
@@ -35,36 +39,35 @@ const ProductListItem = ({ product, imageSize }: IProductListItem) => {
           )}
         </div>
 
-        <div>
-          <p className="overflow-hidden text-ellipsis whitespace-nowrap text-lg">
-            <strong>{product.name}</strong>
-          </p>
+        <div className="flex flex-col gap-2 overflow-hidden">
+          <strong className="overflow-hidden text-ellipsis whitespace-nowrap text-lg">
+            {product.name}
+          </strong>
 
-          <div className="flex items-center justify-between">
-            {product.discountPercent > 0 ? (
-              <>
-                <span className="text-sm font-semibold">
-                  R$ {String(product.totalPrice.toFixed(2)).replace(".", ",")}
-                </span>
+          {product.discountPercent > 0 ? (
+            <>
+              <p className="text-xs font-light line-through">
+                {formatter.format(Number(product.basePrice))}
+              </p>
 
-                <span className="overflow-hidden text-ellipsis whitespace-nowrap text-xs line-through opacity-75">
-                  R${" "}
-                  {String(Number(product.basePrice).toFixed(2)).replace(
-                    ".",
-                    ",",
-                  )}
-                </span>
-              </>
-            ) : (
-              <span className="text-sm font-semibold">
+              <p>
                 R${" "}
-                {String(Number(product.basePrice).toFixed(2)).replace(".", ",")}
+                <span className="text-3xl font-medium text-primary">
+                  {formatter.format(Number(product.totalPrice)).slice(3)}
+                </span>
+              </p>
+            </>
+          ) : (
+            <p>
+              R${" "}
+              <span className="text-3xl font-medium text-primary">
+                {formatter.format(Number(product.totalPrice)).slice(3)}
               </span>
-            )}
-          </div>
+            </p>
+          )}
         </div>
       </Link>
-    </li>
+    </div>
   );
 };
 
