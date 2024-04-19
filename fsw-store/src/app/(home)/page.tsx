@@ -21,13 +21,17 @@ const Home = () => {
         ]}
       />
 
-      <Categories />
+      <div className="px-2 py-6 lg:px-8 lg:py-8">
+        <Categories />
+      </div>
 
-      <Deals />
+      <div className="flex flex-col gap-8 pb-24 lg:gap-10">
+        <Deals />
 
-      <Mouses />
+        <Mouses />
 
-      <Keyboards />
+        <Keyboards />
+      </div>
     </>
   );
 };

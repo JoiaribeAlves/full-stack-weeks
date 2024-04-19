@@ -30,14 +30,10 @@ const RootLayout = ({ children }: IRootLayout) => {
         >
           <AuthProvider>
             <CartProvider>
-              <div className="flex min-h-screen flex-col">
-                <Toaster />
-                <Header />
-                <main className="flex flex-1 flex-col gap-8 py-4 lg:py-8">
-                  {children}
-                </main>
-                <Footer />
-              </div>
+              <Toaster />
+              <Header />
+              <main className="flex-1">{children}</main>
+              <Footer />
             </CartProvider>
           </AuthProvider>
         </ThemeProvider>
