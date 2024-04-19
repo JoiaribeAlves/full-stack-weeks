@@ -3,7 +3,7 @@
 import { useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { CheckIcon, ShoppingCartIcon } from "lucide-react";
+import { CheckIcon } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 import { toast } from "sonner";
 
@@ -99,10 +99,10 @@ const ProductListItem = ({
       <Button
         size="sm"
         variant="secondary"
-        className="flex items-center gap-1 text-xs uppercase hover:bg-primary hover:text-primary-foreground"
+        className="text-xs uppercase hover:bg-primary hover:text-primary-foreground"
         onClick={handleAddProductToCart}
       >
-        <ShoppingCartIcon size={16} /> Adicionar ao carrinho
+        Adicionar ao carrinho
       </Button>
     </div>
   );
