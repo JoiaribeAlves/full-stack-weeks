@@ -5,6 +5,7 @@ import Categories from "./components/Categories";
 import Deals from "./components/Deals";
 import Mouses from "./components/Mouses";
 import Keyboards from "./components/Keyboards";
+import SuperDeals from "./components/SuperDeals";
 
 export const metadata: Metadata = {
   title: "FSW Store",
@@ -26,6 +27,8 @@ const Home = () => {
       </div>
 
       <div className="flex flex-col gap-8 pb-24 lg:gap-10">
+        <SuperDeals />
+
         <Deals />
 
         <Mouses />
