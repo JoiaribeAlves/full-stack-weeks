@@ -11,7 +11,11 @@ const Deals = async () => {
     where: {
       discountPercent: {
         gt: 0,
+        lt: 25,
       },
+    },
+    orderBy: {
+      discountPercent: "desc",
     },
   });
 
@@ -19,12 +23,12 @@ const Deals = async () => {
     <Section icon={<PercentIcon size={16} />} label="Ofertas">
       <ScrollArea className="whitespace-nowrap">
         <ul className="flex w-max gap-4 px-2 pb-4 lg:px-8">
-          {deals.map((mouse, index) => {
+          {deals.map((deal, index) => {
             return (
-              <li key={index} className="flex w-[218px] lg:w-[258px]">
+              <li key={index} className="flex w-[198px] lg:w-[238px]">
                 <ProductListItem
-                  imageSize="w-[200px] h-[200px] lg:h-[240px] lg:w-[240px]"
-                  product={computeProductTotalPrice(mouse)}
+                  imageSize="w-[180px] h-[180px] lg:h-[220px] lg:w-[220px]"
+                  product={computeProductTotalPrice(deal)}
                 />
               </li>
             );
