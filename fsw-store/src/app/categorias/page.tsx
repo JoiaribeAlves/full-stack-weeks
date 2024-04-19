@@ -14,12 +14,12 @@ const Page = async () => {
   const categories = await prismaClient.category.findMany();
 
   return (
-    <>
+    <div className="flex flex-col gap-6 px-2 pb-24 pt-6 lg:px-8 lg:pt-8">
       <TitleBadge icon={<ListOrderedIcon size={16} />} label="Categorias" />
 
       <ul className="grid grid-cols-2 gap-4 lg:grid-cols-3">
         {categories.map((category, index) => (
-          <li key={index} className="transition-transform hover:scale-[1.03]">
+          <li key={index} className="transition-transform hover:scale-[1.02]">
             <Link
               href={`/categorias/${category.slug}`}
               className="flex flex-col"
@@ -45,7 +45,7 @@ const Page = async () => {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 };
 
