@@ -1,3 +1,5 @@
+"use client";
+
 import { useContext } from "react";
 import { ShoppingCartIcon } from "lucide-react";
 import { loadStripe } from "@stripe/stripe-js";
