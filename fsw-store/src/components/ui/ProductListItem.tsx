@@ -9,9 +9,14 @@ import DiscountBadge from "./DiscountBadge";
 interface IProductListItem {
   product: IComputeProductTotalPrice;
   imageSize: string;
+  priceSize?: string;
 }
 
-const ProductListItem = ({ product, imageSize }: IProductListItem) => {
+const ProductListItem = ({
+  product,
+  imageSize,
+  priceSize,
+}: IProductListItem) => {
   return (
     <div className="flex w-full">
       <Link
@@ -52,7 +57,9 @@ const ProductListItem = ({ product, imageSize }: IProductListItem) => {
 
               <p>
                 R${" "}
-                <span className="text-3xl font-medium text-primary">
+                <span
+                  className={`${priceSize ?? "text-3xl"} font-medium text-primary`}
+                >
                   {formatter.format(Number(product.totalPrice)).slice(3)}
                 </span>
               </p>
@@ -60,7 +67,9 @@ const ProductListItem = ({ product, imageSize }: IProductListItem) => {
           ) : (
             <p>
               R${" "}
-              <span className="text-3xl font-medium text-primary">
+              <span
+                className={`${priceSize ?? "text-3xl"} font-medium text-primary`}
+              >
                 {formatter.format(Number(product.totalPrice)).slice(3)}
               </span>
             </p>
