@@ -17,7 +17,7 @@ const CategoryItem = ({ category }: ICategoryItem) => {
           className="flex items-center justify-center gap-2 rounded-lg p-3 transition-colors hover:bg-accent"
         >
           {GET_CATEGORY_ICON[category.slug as keyof typeof GET_CATEGORY_ICON]}
-          <span className="text-xs font-bold">{category.name}</span>
+          <span className="text-xs font-medium">{category.name}</span>
         </Badge>
       </Link>
     </li>
